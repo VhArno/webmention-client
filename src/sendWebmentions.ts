@@ -24,7 +24,7 @@ async function sendWebmention(source: string, target: string) {
 
 const sendWebmentionIo = async (sourceUrl: string, targetUrl: string) => {
     try {
-      const response = await axios.post('https://webmention.io/api/webmention', {
+      const response = await axios.post('https://webmention.io/webmention-client.vercel.app/webmention', {
         source: sourceUrl,
         target: targetUrl,
       });
@@ -42,5 +42,5 @@ document.getElementById('send-webmention')?.addEventListener('click', () => {
 
     // Stuur de Webmention
     sendWebmention(sourceUrl, targetUrl);
-    sendWebmentionIo(sourceUrl, targetUrl);
+    sendWebmentionIo("https://webmention-client.vercel.app/", "https://webmention-client.vercel.app/");
 });
