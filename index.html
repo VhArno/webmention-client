@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link href="http://github.com/VhArno" rel='me' />
-    <link href="http://indieauth.com/auth" rel="authorization_endpoint" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webmention</title>
   </head>
@@ -26,29 +24,9 @@
       </section>
     </main>
     <footer>
-      <ul>
-        <li><a href="https://github.com/aaronpk" rel="me">Github</a></li>
-        <li><a href="mailto:me@example.com" rel="me">me@example.com</a></li>
-      </ul>
-      <link rel="pgpkey" href="/key.txt">
+      <a href="mailto:vanhee.arno@gmail.com" rel="me">vanhee.arno@gmail.com</a>
     </footer>
 
     <script type="module" src="./src/sendWebmentions.ts"></script>
-
-    <script>
-      fetch('https://f145-78-21-50-62.ngrok-free.app/', {
-        method: 'GET',
-        headers: {
-          'ngrok-skip-browser-warning': 'true',
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-          console.log(data);
-      })
-      .catch(error => {
-          console.error(error);
-      });
-    </script>
   </body>
 </html>
