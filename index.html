@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link href="http://github.com/VhArno" rel='me' />
+    <link href="http://indieauth.com/auth" rel="authorization_endpoint" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webmention</title>
+  </head>
+  <body>
+    <header>
+
+    </header>
+    <main>
+      <section>
+        <h1>Blogposts</h1>
+
+        <div>
+          <h2>Blogpost van Arno zijn website</h2>
+          <p>Kijk hoe cool deze blogpost is, wow!</p>
+          <a href="http://localhost:3000/blogpost1">Zie hier</a>
+        </div>
+
+        <button id="send-webmention">Send Webmention</button>
+      </section>
+    </main>
+    <footer>
+      <ul>
+        <li><a href="https://github.com/aaronpk" rel="me">Github</a></li>
+        <li><a href="mailto:me@example.com" rel="me">me@example.com</a></li>
+      </ul>
+      <link rel="pgpkey" href="/key.txt">
+    </footer>
+
+    <script type="module" src="./src/sendWebmentions.ts"></script>
+
+    <script>
+      fetch('https://f145-78-21-50-62.ngrok-free.app/', {
+        method: 'GET',
+        headers: {
+          'ngrok-skip-browser-warning': 'true',
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log(data);
+      })
+      .catch(error => {
+          console.error(error);
+      });
+    </script>
+  </body>
+</html>
