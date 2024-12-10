@@ -24,12 +24,16 @@ async function sendWebmention(source: string, target: string) {
 
 const sendWebmentionIo = async (sourceUrl: string, targetUrl: string) => {
     try {
-      const response = await axios.post('https://webmention.io/webmention-client.vercel.app/webmention', {
-        source: sourceUrl,
-        target: targetUrl,
-      }, {
-        headers: 'Content-Type': 'application/json'
-      });
+      const response = await axios.post(
+        'https://webmention.io/webmention-client.vercel.app/webmention', 
+        {
+          source: sourceUrl,
+          target: targetUrl,
+        }, 
+        {
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
       console.log('Webmention response:', response.data);
     } catch (error) {
       console.error('Error sending Webmention:', error);
