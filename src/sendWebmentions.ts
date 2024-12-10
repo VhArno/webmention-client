@@ -25,7 +25,7 @@ async function sendWebmention(source: string, target: string) {
 const sendWebmentionIo = async (sourceUrl: string, targetUrl: string) => {
     try {
       const response = await axios.post(
-        'https://webmention.io/webmention-client.vercel.app/webmention', 
+        'https://webmention.io/webmention-client.vercel.app/webmention/5HwCzggz4gECKWR_SzCi', 
         {
           source: sourceUrl,
           target: targetUrl,
