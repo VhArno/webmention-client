@@ -10,11 +10,36 @@ async function fetchWebmentions() {
       }
     );
     console.log('Webmentions opgehaald:', response.data);
+    displayWebmentions(response.data);
     return response.data; // Return the data for further use
   } catch (error: any) {
     console.error('Fout bij het ophalen van Webmentions:', error.response?.data || error.message);
     throw error; // Re-throw error if needed
   }
+}
+
+// Display Webmentions on the page
+function displayWebmentions(webmentions: any) {
+  const container = document.getElementById('webmentions-list');
+  const countElement = document.getElementById('webmentions-count');
+
+  // Clear previous content
+  if (container) {
+    container.innerHTML = '';
+  }
+
+  // Display the count of Webmentions
+  if (countElement) {
+    countElement.innerText = `You have ${webmentions.length} Webmentions`;
+  }
+
+  // Create a list of Webmentions
+  webmentions.forEach((mention: any) => {
+    const item = document.createElement('li');
+    item.innerHTML = `<strong>Source:</strong> <a href="${mention.source}">${mention.source}</a> <br>
+                     <strong>Target:</strong> <a href="${mention.target}">${mention.target}</a>`;
+    container?.appendChild(item);
+  });
 }
 
 // Functie om een Webmention te versturen
