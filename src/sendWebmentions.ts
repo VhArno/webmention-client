@@ -10,7 +10,7 @@ async function fetchWebmentions() {
       }
     );
     console.log('Webmentions opgehaald:', response.data);
-    displayWebmentions(response.data);
+    displayWebmentions(response.data.links);
     return response.data; // Return the data for further use
   } catch (error: any) {
     console.error('Fout bij het ophalen van Webmentions:', error.response?.data || error.message);
