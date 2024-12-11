@@ -5,7 +5,7 @@ async function fetchWebmentions() {
     const response = await axios.get('https://webmention.io/api/mentions.html?token=imcNszc0uo-iMwmAz2Fqiw',
       {
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'Access-Control-Allow-Origin',
         },
       }
     );
