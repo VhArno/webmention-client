@@ -2,7 +2,13 @@ import axios from 'axios'
 
 async function fetchWebmentions() {
   try {
-    const response = await axios.get('https://webmention.io/api/mentions.html?token=imcNszc0uo-iMwmAz2Fqiw');
+    const response = await axios.get('https://webmention.io/api/mentions.html?token=imcNszc0uo-iMwmAz2Fqiw',
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
+    );
     console.log('Webmentions opgehaald:', response.data);
     return response.data; // Return the data for further use
   } catch (error: any) {
