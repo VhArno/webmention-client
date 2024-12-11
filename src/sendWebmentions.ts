@@ -1,5 +1,16 @@
 import axios from 'axios'
 
+async function fetchWebmentions() {
+  try {
+    const response = await axios.get('http://localhost:3000/webmention');
+    console.log('Webmentions opgehaald:', response.data);
+    return response.data; // Return the data for further use
+  } catch (error: any) {
+    console.error('Fout bij het ophalen van Webmentions:', error.response?.data || error.message);
+    throw error; // Re-throw error if needed
+  }
+}
+
 // Functie om een Webmention te versturen
 async function sendWebmention(source: string, target: string) {
     try {
@@ -42,11 +53,13 @@ const sendWebmentionIo = async (sourceUrl: string, targetUrl: string) => {
 
 // Event listener voor de button
 document.getElementById('send-webmention')?.addEventListener('click', () => {
-    const targetUrl = 'http://localhost:3000/blogpost1'; // Het doel dat de bron linkt
+  const targetUrl = 'http://localhost:3000/blogpost1'; // Het doel dat de bron linkt
 
-    const sourceUrl = window.location.href;
+  const sourceUrl = window.location.href;
 
-    // Stuur de Webmention
-    sendWebmention(sourceUrl, targetUrl);
-    sendWebmentionIo("https://webmention-client.vercel.app/", "https://webmention-client.vercel.app/");
+  // Stuur de Webmention
+  sendWebmention(sourceUrl, targetUrl);
+  sendWebmentionIo("https://webmention-client.vercel.app/", "https://webmention-client.vercel.app/");
 });
+
+fetchWebmentions();

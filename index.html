@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="./src/style.css" />
     <link rel="webmention" href="https://webmention.io/webmention-client.vercel.app/webmention" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webmention</title>
@@ -15,13 +16,25 @@
       <section>
         <h1>Blogposts</h1>
 
-        <div>
-          <h2>Blogpost van Arno zijn website</h2>
-          <p>Kijk hoe cool deze blogpost is, wow!</p>
-          <a href="https://webmention-client.vercel.app/">Zie hier</a>
+        <div class="blog-container">
+          <div>
+            <h2>Blogpost #1</h2>
+            <p>Bla bla blogpost over van alles en nog wat.</p>
+            <a href="./blogpost1/">Lees meer</a>
+          </div>
+
+          <div>
+            <h2>Blogpost #2</h2>
+            <p>Bla bla blogpost over van alles en nog wat.</p>
+            <a href="./blogpost2/">Lees meer</a>
+          </div>
         </div>
 
-        <button id="send-webmention">Send Webmention</button>
+        <div>
+          <h2>Blogpost op andere site</h2>
+          <p>Kijk hoe cool deze blogpost is, wow!</p>
+          <a href="https://exampleSite.com/">Zie hier</a>
+        </div>
       </section>
     </main>
     <footer>
