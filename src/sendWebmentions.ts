@@ -30,16 +30,18 @@ function displayWebmentions(webmentions: any) {
 
   // Display the count of Webmentions
   if (countElement) {
-    countElement.innerText = `You have ${webmentions.length} Webmentions`;
+    countElement.innerText = `You have ${webmentions.length ?? 0} Webmentions`;
   }
 
   // Create a list of Webmentions
-  webmentions.forEach((mention: any) => {
-    const item = document.createElement('li');
-    item.innerHTML = `<strong>Source:</strong> <a href="${mention.source}">${mention.source}</a> <br>
-                     <strong>Target:</strong> <a href="${mention.target}">${mention.target}</a>`;
-    container?.appendChild(item);
-  });
+  if (webmentions.length > 0) {
+    webmentions.forEach((mention: any) => {
+      const item = document.createElement('li');
+      item.innerHTML = `<strong>Source:</strong> <a href="${mention.source}">${mention.source}</a> <br>
+                      <strong>Target:</strong> <a href="${mention.target}">${mention.target}</a>`;
+      container?.appendChild(item);
+    });
+  }
 }
 
 // Functie om een Webmention te versturen
